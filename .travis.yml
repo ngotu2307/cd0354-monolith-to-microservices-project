@@ -19,21 +19,21 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t reverseproxy:v1 ./udagram-reverseproxy
-  - docker tag reverseproxy:v1 ngotu/reverseproxy:v1
+  - docker build -t reverseproxy:v2 ./udagram-reverseproxy
+  - docker tag reverseproxy:v2 ngotu/reverseproxy:v2
 
-  - docker build -t udagram-frontend:v1 -f ./udagram-frontend/Dockerfile
-  - docker tag udagram-frontend:v1 ngotu/udagram-frontend:v1
+  - docker build -t udagram-frontend:v2 -f ./udagram-frontend
+  - docker tag udagram-frontend:v2 ngotu/udagram-frontend:v2
 
-  - docker build -t udagram-api-user:v1 -f ./udagram-api-user/Dockerfile
-  - docker tag udagram-api-user:v1 ngotu/udagram-api-user:v1
+  - docker build -t udagram-api-user:v2 -f ./udagram-api-user
+  - docker tag udagram-api-user:v2 ngotu/udagram-api-user:v2
 
-  - docker build -t udagram-api-feed:v1 -f ./udagram-api-feed/Dockerfile
-  - docker tag udagram-api-feed:v1 ngotu/udagram-api-feed:v1
+  - docker build -t udagram-api-feed:v2 -f ./udagram-api-feed
+  - docker tag udagram-api-feed:v2 ngotu/udagram-api-feed:v2
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push  ngotu/reverseproxy:v1
-  - docker push  ngotu/udagram-frontend:v1
-  - docker push  ngotu/udagram-api-user:v1
-  - docker push  ngotu/udagram-api-feed:v1
+  - docker push  ngotu/reverseproxy:v2
+  - docker push  ngotu/udagram-frontend:v2
+  - docker push  ngotu/udagram-api-user:v2
+  - docker push  ngotu/udagram-api-feed:v2
