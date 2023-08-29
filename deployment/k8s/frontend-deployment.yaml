@@ -16,7 +16,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: ngotu/udagram-frontend:v2
+      - image: ngotu/udagram-frontend:v3
         name: frontend
         imagePullPolicy: Always          
         ports:
