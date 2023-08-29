@@ -34,6 +34,6 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push  ngotu/reverseproxy:v2
-  - docker push  ngotu/udagram-frontend:v8
+  - docker push  ngotu/udagram-frontend:v9
   - docker push  ngotu/udagram-api-user:v2
   - docker push  ngotu/udagram-api-feed:v2
